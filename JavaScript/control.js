@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
   
   
-        // clientes.sort((a, b) => a.clientes.localeCompare(b.clientes));
+        clientes.sort((a, b) => a.cliente.localeCompare(b.cliente));
         clientes.forEach((cliente) =>{
             datos +=`
             <tr>
