@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             <td>${cliente.cliente}</td>
             <td>${cliente.telefono}</td>
             <td>${cliente.direccion}</td>
-            <td><button data-id="${cliente.id}" class="btn btn-danger" type="button">Eliminar</button></td>
+            <td><button data-id="${cliente.id}" class="btn btn-dark" type="button">Eliminar</button></td>
         </tr>
             `
         })
