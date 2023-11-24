@@ -5,7 +5,7 @@ import {
     // APARTADO REGISTRAR MENU
     registrarMenu,menusBD,borrarMenus,
     // APARTADO REGISTRAR DELIVERY
-    registrarDelivery
+    registrarDelivery,deliveryBD,borrarDelivery
 
   } from "./firebase.js";
 
@@ -242,7 +242,45 @@ window.addEventListener('DOMContentLoaded', async () => {
     }  
   })
 
+  window.addEventListener('DOMContentLoaded', async () => {
+    
+    let tBody = document.getElementById('tBodyDelivery')
+  
+    deliveryBD((querySnapshot) => {
+        let datos = ''
+        let deliverys = []
+  
+        querySnapshot.forEach((doc) => {
+            let delivery = doc.data()
+            deliverys.push({...delivery, id: doc.id});
+        });
+  
+        let contador = 1
+        // menus.sort((a, b) => a.cliente.localeCompare(b.cliente));
+        deliverys.forEach((delivery) =>{
+            datos +=`
+            <tr>
+            <td>${contador++}</td>
+            <td>${delivery.delivery}</td>
+            <td><button data-id="${delivery.id}" class="btn btn-dark" type="button">Eliminar</button></td>
+        </tr>
+            `
+        })
+  
+  
+        tBody.innerHTML = datos;
 
+        const btnDelet = tBody.querySelectorAll(".btn");
+
+        // Agregar un evento de clic a cada botón de borrado
+        btnDelet.forEach((btn) => {
+            btn.addEventListener("click", (event) => {
+                // Llamar a la función deletTask con el ID de la tarea asociado al botón
+                borrarDelivery(event.target.dataset.id);
+            });
+        });
+    })
+  })
 
 
 

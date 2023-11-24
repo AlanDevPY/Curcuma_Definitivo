@@ -75,3 +75,6 @@
   
   }
 
+  export const deliveryBD = (callback) => onSnapshot(collection(db,'delivery'),callback)
+  export const borrarDelivery = (id) => deleteDoc(doc(db,'delivery',id));
+
