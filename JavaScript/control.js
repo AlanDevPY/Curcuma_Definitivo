@@ -126,8 +126,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   btnRegistrarMenu.addEventListener("click", () => {
     let menuNombre = document.getElementById("inputMenuNombre").value
     let menuValor = document.getElementById("inputMenuValor").value
+    let valor = parseFloat(menuValor)
 
-    if(menuNombre === "" || menuValor === ""){
+    if(menuNombre === "" || valor === ""){
       Toastify({
         text: "Favor completar los datos",
         duration: 2000,
@@ -155,7 +156,7 @@ window.addEventListener('DOMContentLoaded', async () => {
           background: "#508D69",
         }
       }).showToast();
-      registrarMenu(menuNombre,menuValor)
+      registrarMenu(menuNombre,valor)
       document.getElementById("inputMenuNombre").value = ""
       document.getElementById("inputMenuValor").value = ""
     }
@@ -181,7 +182,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             <tr>
             <td>${contador++}</td>
             <td>${menu.menu}</td>
-            <td>${menu.valor}</td>
+            <td>${menu.valor.toLocaleString('es-ES')}</td>
             <td><button data-id="${menu.id}" class="btn btn-dark" type="button">Eliminar</button></td>
         </tr>
             `
