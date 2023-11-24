@@ -1,8 +1,11 @@
 
 import {
+  // APARTADO REGISTRAR CLIENTE
     registrarCliente,
     clientesBD,
-    borrarCliente
+    borrarCliente,
+    // APARTADO REGISTRAR MENU
+    registrarMenu
   } from "./firebase.js";
 
 
@@ -115,6 +118,33 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   
   // APARTADO REGISTRO DE MENUS
+  let btnRegistrarMenu = document.getElementById("btnRegistrarMenu")
 
-  
+  btnRegistrarMenu.addEventListener("click", () => {
+    let menuNombre = document.getElementById("inputMenuNombre").value
+    let menuValor = document.getElementById("inputMenuValor").value
+
+    if(menuNombre === "" || menuValor === ""){
+      Toastify({
+        text: "Favor completar los datos",
+        duration: 2000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        // close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#B31312",
+        }
+      }).showToast();
+    }else {
+      registrarMenu(menuNombre,menuValor)
+      document.getElementById("inputMenuNombre").value = ""
+      document.getElementById("inputMenuValor").value = ""
+    }
+  })
+
+
+
 

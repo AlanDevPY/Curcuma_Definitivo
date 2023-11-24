@@ -117,12 +117,7 @@
             </form>
         </div>
     </section>
-    <section style="
-        margin: 20px;
-        background: rgb(255, 255, 255);
-        padding: 20px;
-        border-radius: 10px;
-      ">
+    <section style="margin: 20px;background: rgb(255, 255, 255);padding: 20px;border-radius: 10px;">
         <div class="container-fluid">
             <form>
                 <div class="card shadow mb-3" style="padding: 20px">
@@ -131,27 +126,21 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-8 col-lg-8">
                                 <div class="mb-3">
-                                    <label class="form-label" for="service_name"><strong>Nombre del
-                                            Menu</strong></label><input class="form-control" type="text"
-                                        id="service_name-1" placeholder="TRADICIONAL" name="service_name" required=""
-                                        autocomplete="off" />
+                                    <label class="form-label" for="service_name"><strong>Nombre del Menu</strong></label>
+                                    <input class="form-control" type="text" id="inputMenuNombre" placeholder="TRADICIONAL" name="service_name" required="" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <div class="mb-3">
-                                    <label class="form-label" for="service_price"><strong>Valor</strong></label><input
-                                        class="form-control" type="text" data-bs-toggle="tooltip" data-bss-tooltip=""
-                                        id="service_price-1" placeholder="20000" name="client_phone" required=""
-                                        title="INGRESA EL VALOR SIN PUNTOS" autocomplete="off" />
+                                    <label class="form-label" for="service_price"><strong>Valor</strong></label>
+                                    <input class="form-control" type="text" data-bs-toggle="tooltip" data-bss-tooltip="" id="inputMenuValor" placeholder="20000" name="client_phone" required="" title="INGRESA EL VALOR SIN PUNTOS" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="text-end mb-3">
-                        <button class="btn btn-dark" type="submit" style="margin: 5px">
-                            Registrar menu</button><button class="btn btn-danger" type="reset" style="margin: 5px">
-                            Limpiar
-                        </button>
+                        <button class="btn btn-dark" id="btnRegistrarMenu" type="button" style="margin: 5px">Registrar menu</button>
+                        <button class="btn btn-danger" type="reset" style="margin: 5px">Limpiar</button>
                     </div>
                     <div style="height: 250px; overflow: auto; background: #ffffff">
                         <div class="table-responsive">
@@ -211,10 +200,10 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-8 col-lg-8 col-xl-12">
                                 <div class="mb-3">
-                                    <label class="form-label" for="service_name"><strong>Nombre del
-                                            Delivery</strong></label><input class="form-control" type="text"
-                                        id="service_name-3" placeholder="NESTOR MONGELOS" name="service_name"
-                                        required="" autocomplete="off" />
+                                    <label class="form-label" for="service_name">
+                                        <strong>Nombre delDelivery</strong>
+                                    </label>
+                                    <input class="form-control" type="text" id="service_name-3" placeholder="NESTOR MONGELOS" name="service_name"required="" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
