@@ -19,6 +19,8 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore()
 
+
+  // APARTADO MENU DE CONTROL-----------------------------------------------------------------------------------------------------------------------------------------
   // APARTADO REGISTRO DE CLIENTE
   export const registrarCliente = (cliente,telefono,direccion) => {
 
@@ -77,4 +79,6 @@
 
   export const deliveryBD = (callback) => onSnapshot(collection(db,'delivery'),callback)
   export const borrarDelivery = (id) => deleteDoc(doc(db,'delivery',id));
+
+  // APARTADO MENU DE PEDIDOS-----------------------------------------------------------------------------------
 
