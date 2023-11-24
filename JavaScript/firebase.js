@@ -58,3 +58,20 @@
   export const menusBD = (callback) => onSnapshot(collection(db,'menus'),callback)
   export const borrarMenus = (id) => deleteDoc(doc(db,'menus',id));
 
+  // APARTADO REGISTRAR DELIVERY
+
+  export const registrarDelivery = (delivery) => {
+
+    try {
+      addDoc(collection(db,"delivery"),{
+        delivery
+      });
+  
+      console.log("Delivery registrado con exito");
+    }
+    catch {
+      console.error('Error al registrar Delirevy', error)
+    }
+  
+  }
+

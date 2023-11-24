@@ -1,13 +1,11 @@
 
 import {
   // APARTADO REGISTRAR CLIENTE
-    registrarCliente,
-    clientesBD,
-    borrarCliente,
+    registrarCliente,clientesBD,borrarCliente,
     // APARTADO REGISTRAR MENU
-    registrarMenu,
-    menusBD,
-    borrarMenus
+    registrarMenu,menusBD,borrarMenus,
+    // APARTADO REGISTRAR DELIVERY
+    registrarDelivery
 
   } from "./firebase.js";
 
@@ -202,6 +200,48 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
     })
   })
+
+  // APARTADO REGISTRAR DELIVEY
+
+  let btnRegistrarDelivery = document.getElementById("btnRegistrarDelivery")
+
+
+  btnRegistrarDelivery.addEventListener("click", () => {
+    let delivery = document.getElementById("inputNombreDelivery").value
+
+    if(delivery === ""){
+      Toastify({
+        text: "Favor completar los datos",
+        duration: 2000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        // close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#B31312",
+        }
+      }).showToast();
+    }else{
+      Toastify({
+        text: "Delivery Registrado",
+        duration: 2000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        // close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#508D69",
+        }
+      }).showToast();
+      registrarDelivery(delivery)
+      document.getElementById("inputNombreDelivery").value = ""
+    }  
+  })
+
 
 
 
