@@ -78,12 +78,9 @@
                             <label class="form-label"
                                 for="client_description"><strong>Direccion</strong>
                             </label>
-                            <textarea
-                                class="form-control" data-bs-toggle="tooltip" data-bss-tooltip=""
-                                id="inputDireccionCliente" rows="4" name="service_description"
-                                placeholder="CARLOS ANTONIO LOPEZ ALADO DE BANCO REGIONAL" required=""
-                                title="ESTE DATO SERÁ UTILIZADO POR EL DELIVERY" autocomplete="off">
-                            </textarea>
+                            <textarea class="form-control" data-bs-toggle="tooltip" data-bss-tooltip="" 
+                            id="inputDireccionCliente"  placeholder="CARLOS ANTONIO LOPEZ ALADO DE BANCO REGIONAL"title="ESTE DATO SERÁ UTILIZADO POR EL DELIVERY" 
+                            autocomplete="off"></textarea>
                         </div>
                         <div class="text-end mb-3">
                             <button class="btn btn-dark" id="btnRegistrarCliente" type="button" style="margin: 5px">Registrar nuevo cliente</button>
@@ -107,7 +104,7 @@
                                             <th>Accion</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tBody">
+                                    <tbody id="tBodyCliente">
                                     </tbody>
                                 </table>
                             </div>
@@ -153,36 +150,7 @@
                                         <th>Accion</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Tradicional</td>
-                                        <td>17.000</td>
-                                        <td>
-                                            <button class="btn btn-dark btn-sm" type="button">
-                                                Eliminar</button>&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Bajo en Carbohidratos</td>
-                                        <td>20.000</td>
-                                        <td>
-                                            <button class="btn btn-dark btn-sm" type="button">
-                                                Eliminar
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Saludable</td>
-                                        <td>25.000</td>
-                                        <td>
-                                            <button class="btn btn-dark btn-sm" type="button">
-                                                Eliminar
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <tbody id="tBodyMenu">
                                 </tbody>
                             </table>
                         </div>

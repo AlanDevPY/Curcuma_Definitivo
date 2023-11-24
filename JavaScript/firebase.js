@@ -55,4 +55,6 @@
     }
   
   }
+  export const menusBD = (callback) => onSnapshot(collection(db,'menus'),callback)
+  export const borrarMenus = (id) => deleteDoc(doc(db,'menus',id));
 

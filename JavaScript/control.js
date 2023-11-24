@@ -5,7 +5,10 @@ import {
     clientesBD,
     borrarCliente,
     // APARTADO REGISTRAR MENU
-    registrarMenu
+    registrarMenu,
+    menusBD,
+    borrarMenus
+
   } from "./firebase.js";
 
 
@@ -75,7 +78,7 @@ btnRegistrarCliente.addEventListener("click", (e) => {
 
 window.addEventListener('DOMContentLoaded', async () => {
     
-    let tBody = document.getElementById('tBody')
+    let tBody = document.getElementById('tBodyCliente')
   
     clientesBD((querySnapshot) => {
         let datos = ''
@@ -87,12 +90,12 @@ window.addEventListener('DOMContentLoaded', async () => {
             clientesRegistrados.push(doc.data()) // Agregar cada tarea al arreglo 'tasks' con su ID
         });
   
-  
+        let contador = 1
         clientes.sort((a, b) => a.cliente.localeCompare(b.cliente));
         clientes.forEach((cliente) =>{
             datos +=`
             <tr>
-            <td>1</td>
+            <td>${contador++}</td>
             <td>${cliente.cliente}</td>
             <td>${cliente.telefono}</td>
             <td>${cliente.direccion}</td>
@@ -139,11 +142,66 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
       }).showToast();
     }else {
+      Toastify({
+        text: "Menu registrado",
+        duration: 2000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        // close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#508D69",
+        }
+      }).showToast();
       registrarMenu(menuNombre,menuValor)
       document.getElementById("inputMenuNombre").value = ""
       document.getElementById("inputMenuValor").value = ""
     }
   })
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    
+    let tBody = document.getElementById('tBodyMenu')
+  
+    menusBD((querySnapshot) => {
+        let datos = ''
+        let menus = []
+  
+        querySnapshot.forEach((doc) => {
+            let menu = doc.data()
+            menus.push({...menu, id: doc.id});
+        });
+  
+        let contador = 1
+        // menus.sort((a, b) => a.cliente.localeCompare(b.cliente));
+        menus.forEach((menu) =>{
+            datos +=`
+            <tr>
+            <td>${contador++}</td>
+            <td>${menu.menu}</td>
+            <td>${menu.valor}</td>
+            <td><button data-id="${menu.id}" class="btn btn-dark" type="button">Eliminar</button></td>
+        </tr>
+            `
+        })
+  
+  
+        tBody.innerHTML = datos;
+
+        const btnDelet = tBody.querySelectorAll(".btn");
+
+        // Agregar un evento de clic a cada botón de borrado
+        btnDelet.forEach((btn) => {
+            btn.addEventListener("click", (event) => {
+                // Llamar a la función deletTask con el ID de la tarea asociado al botón
+                borrarMenus(event.target.dataset.id);
+            });
+        });
+    })
+  })
+
 
 
 
