@@ -82,3 +82,20 @@
 
   // APARTADO MENU DE PEDIDOS-----------------------------------------------------------------------------------
 
+
+  export const registrarPedido = (cliente,menu,delivery,monto) => {
+
+    try {
+      addDoc(collection(db,"pedidos"),{
+        cliente,menu,delivery,monto
+      });
+  
+      console.log("Pedido Registrado con Exito");
+    }
+    catch {
+      console.error('Pedido no registrado', error)
+    }
+  
+  }
+  export const pedidosDB = (callback) => onSnapshot(collection(db,'pedidos'),callback)
+  export const borrarPedido = (id) => deleteDoc(doc(db,'pedidos',id));
