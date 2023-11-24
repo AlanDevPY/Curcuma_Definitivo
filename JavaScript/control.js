@@ -112,3 +112,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
     })
   })
+
+  
+  // APARTADO REGISTRO DE MENUS
+
+  
+

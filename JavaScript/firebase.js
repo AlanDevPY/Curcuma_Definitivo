@@ -19,7 +19,7 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore()
 
-  // APARTADO CLIENTE
+  // APARTADO REGISTRO DE CLIENTE
   export const registrarCliente = (cliente,telefono,direccion) => {
 
     try {
@@ -37,3 +37,22 @@
 
   export const clientesBD = (callback) => onSnapshot(collection(db,'clientes'),callback)
   export const borrarCliente = (id) => deleteDoc(doc(db,'clientes',id));
+
+
+  // APARTADO REGISTRO DE MENUS
+
+  export const registrarMenu = (menu,valor) => {
+
+    try {
+      addDoc(collection(db,"menus"),{
+        menu,valor
+      });
+  
+      console.log("Menu registrado con exito");
+    }
+    catch {
+      console.error('Error al registrar menu', error)
+    }
+  
+  }
+
